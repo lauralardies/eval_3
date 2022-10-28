@@ -35,6 +35,12 @@ def agregar_termino(polinomio, termino, valor):
         aux.sig = actual.sig
         actual.sig = aux
 
+def modificar_termino(polinomio, termino, valor):
+    aux = polinomio.termino_mayor
+    while aux is not None and aux.info.termino != termino:
+        aux = aux.sig
+    aux.info.valor = valor
+
 def obtener_valor(polinomio, termino):
     aux = polinomio.termino_mayor
     while aux is not None and aux.info.termino > termino:
@@ -56,7 +62,7 @@ def mostrar(polinomio):
             aux = aux.sig
     return pol
 
-# Ahora comenzamos con el ejercicio, primero realizamos la función de restar 
+# Ahora comenzamos con el ejercicio, primero realizamos la función de RESTAR 
 def restar(polinomio1, polinomio2):
     paux = Polinomio()
     mayor = polinomio1 if polinomio1.grado > polinomio2.grado else polinomio2
@@ -65,4 +71,22 @@ def restar(polinomio1, polinomio2):
         total = obtener_valor(mayor, i) - obtener_valor(menor, i)
         if total != 0:
             agregar_termino(paux, i, total)
+    return paux
+
+# Seguimos con la función de DIVIDIR
+def dividir(polinomio1, polinomio2):
+    paux = Polinomio()
+    pol1 = polinomio1.termino_mayor
+    while pol1 is not None:
+        pol2 = polinomio2.termino_mayor
+        while pol2 is not None:
+            termino = pol1.info.termino - pol2.info.termino
+            valor = pol1.info.valor / pol2.info.valor
+            if obtener_valor(paux, termino) != 0:
+                valor += obtener_valor(paux, termino)
+                modificar_termino(paux, termino, valor)
+            else:
+                agregar_termino(paux, termino, valor)
+            pol2 = pol1.sig
+        pol1 = pol1.sig
     return paux

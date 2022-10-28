@@ -20,5 +20,5 @@ def determinante_recur(matriz):
             return matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0]
         else:
             for i in range(len(matriz)):
-                X = X + ((-1) ** (i)) * matriz[0][i] * det(submatriz(matriz, i))
+                X = X + ((-1) ** (i)) * matriz[0][i] * determinante_recur(submatriz(matriz, i))
     return X
