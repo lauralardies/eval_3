@@ -1,3 +1,4 @@
+import unittest
 from codigo_ejs.torres_hanoi import TorreHanoi
 from codigo_ejs.sarrus_iterativo import determinante_iter
 from codigo_ejs.sarrus_recursivo import determinante_recur
@@ -10,10 +11,13 @@ print('EJERCICIO 2: REGLA DE SARRUS')
 print('EJERCICIO 3: NAVES STAR WARS')
 print('EJERCICIO 4: TDA POLINOMIO')
 print('EJERCICIO 5: ALGORITMO DE ENCRIPTACIÓN')
+print('-------------------------------')
 seleccion = int(input('>> '))   
 
 if seleccion == 1:
-    TorreHanoi(64, 'A', 'B', 'C')
+    # El problema se acaba resolviendo pero debido al alto tiempo de ejecución, no se puede comprobar.
+    # Si la Torre de Hanoi tiene n-discos sería necesario realizar (2^n)-1 movimientos.
+    TorreHanoi(64, 'A', 'C', 'B')
 
 elif seleccion == 2:
     matriz = [[1, 0, 2],
@@ -25,6 +29,7 @@ elif seleccion == 2:
         print('El determinante de la matriz es :', determinante_iter(matriz))
     if opcion == 2:
         print('El determinante de la matriz es :', determinante_recur(matriz))
+    unittest.main()
 
 elif seleccion == 3:
     print('Este ejercicio no está hecho')
@@ -46,6 +51,9 @@ elif seleccion == 4:
         print('Se ha eliminado el término, el polinomio resultante es ', mostrar(eliminar(polinomio1, 2)))
     if opcion == 4:
         buscar(polinomio1, 3)
+
+elif seleccion == 5:
+    print('Este ejercicio no está hecho')
 
 else:
     print('No has seleccionado un número de ejercicio válido')
