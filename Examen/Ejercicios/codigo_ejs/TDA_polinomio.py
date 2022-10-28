@@ -55,7 +55,8 @@ def mostrar(polinomio):
             pol += signo + str(aux.info.valor) + 'x^' + str(aux.info.termino)
             aux = aux.sig
     return pol
-    
+
+# Ahora comenzamos con el ejercicio, primero realizamos la función de restar 
 def restar(polinomio1, polinomio2):
     paux = Polinomio()
     mayor = polinomio1 if polinomio1.grado > polinomio2.grado else polinomio2
