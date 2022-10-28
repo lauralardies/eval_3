@@ -5,7 +5,7 @@
 # determinar si un término existe en un polinomio
 
 
-# Comenzamos mostrando las funciones para crear el polinomio
+# Comenzamos mostrando las funciones que nos definen el polinomio
 
 class Nodo(object):
     info, sig = None, None
@@ -35,4 +35,33 @@ def agregar_termino(polinomio, termino, valor):
         aux.sig = actual.sig
         actual.sig = aux
 
-polinomio = Polinomio()
+def obtener_valor(polinomio, termino):
+    aux = polinomio.termino_mayor
+    while aux is not None and aux.info.termino > termino:
+        aux = aux.sig
+    if aux is not None and aux.info.termino == termino:
+        return aux.info.valor
+    else:
+        return 0
+
+def mostrar(polinomio):
+    aux = polinomio.termino_mayor
+    pol = ''
+    if aux is not None:
+        while aux is not None:
+            signo = ' '
+            if aux.info.valor >= 0:
+                signo += '+'
+            pol += signo + str(aux.info.valor) + 'x^' + str(aux.info.termino)
+            aux = aux.sig
+    return pol
+    
+def restar(polinomio1, polinomio2):
+    paux = Polinomio()
+    mayor = polinomio1 if polinomio1.grado > polinomio2.grado else polinomio2
+    menor = polinomio2 if polinomio1 == mayor else polinomio1
+    for i in range(0, mayor.grado + 1):
+        total = obtener_valor(mayor, i) - obtener_valor(menor, i)
+        if total != 0:
+            agregar_termino(paux, i, total)
+    return paux

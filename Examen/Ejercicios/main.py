@@ -1,6 +1,7 @@
 from codigo_ejs.torres_hanoi import TorreHanoi
 from codigo_ejs.sarrus_iterativo import determinante_iter
 from codigo_ejs.sarrus_recursivo import determinante_recur
+from codigo_ejs.TDA_polinomio import Polinomio, agregar_termino, mostrar, restar
 
 print('¿Qué ejercicio quiere resolver?')
 print('-------------------------------')
@@ -23,3 +24,19 @@ if seleccion == 2:
         print('El determinante de la matriz es :', determinante_iter(matriz))
     if opcion == 2:
         print('El determinante de la matriz es :', determinante_recur(matriz))
+if seleccion == 4:
+    polinomio1 = Polinomio()
+    agregar_termino(polinomio1, 1, 2)
+    agregar_termino(polinomio1, 3, 1)
+    agregar_termino(polinomio1, 2, 3)
+
+    polinomio2 = Polinomio()
+    agregar_termino(polinomio2, 1, 3)
+    agregar_termino(polinomio2, 3, 2)
+    agregar_termino(polinomio2, 1, 1)
+    print('¿Quiere restar el polinomio (1), dividirlo (2), eliminar un término (3) o determinar si existe un término en el polinomio(4)?')
+    opcion = int(input('>> ')) 
+    if opcion == 1:
+        print('La resta de los polinomios es ', mostrar(restar(polinomio1, polinomio2)))
+else:
+    print('No has seleccionado un número de ejercicio válido')
