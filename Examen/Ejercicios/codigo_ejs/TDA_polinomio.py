@@ -90,3 +90,16 @@ def dividir(polinomio1, polinomio2):
             pol2 = pol1.sig
         pol1 = pol1.sig
     return paux
+
+# La siguiente función a realizar es eliminar un polinomio
+def eliminar(polinomio, termino):
+    aux = Nodo()
+    borrar = datoPolinomio(obtener_valor(polinomio, termino), termino)
+    aux.info = borrar
+    if termino > polinomio.grado: # El término a buscar no está en el polinomio al ser más grande
+        return polinomio
+    else:
+        actual = polinomio.termino_mayor
+        while actual.sig is not None and termino < actual.sig.info.termino:
+            actual = actual.sig
+        actual.sig = aux.sig

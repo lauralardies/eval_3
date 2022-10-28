@@ -1,7 +1,7 @@
 from codigo_ejs.torres_hanoi import TorreHanoi
 from codigo_ejs.sarrus_iterativo import determinante_iter
 from codigo_ejs.sarrus_recursivo import determinante_recur
-from codigo_ejs.TDA_polinomio import Polinomio, agregar_termino, mostrar, restar, dividir
+from codigo_ejs.TDA_polinomio import Polinomio, agregar_termino, mostrar, restar, dividir, eliminar
 
 print('¿Qué ejercicio quiere resolver?')
 print('-------------------------------')
@@ -39,6 +39,8 @@ elif seleccion == 4:
         print('La resta de los polinomios es ', mostrar(restar(polinomio1, polinomio2)))
     if opcion == 2:
         print('La división de polinomios es ', mostrar(dividir(polinomio1, polinomio2)))
+    if opcion == 3:
+        print('Se ha eliminado el término, el polinomio resultante es ', mostrar(eliminar(polinomio1, 2)))
 
 else:
     print('No has seleccionado un número de ejercicio válido')
