@@ -104,3 +104,10 @@ def eliminar(polinomio, termino):
             actual = actual.sig
         actual = aux.sig
         return polinomio
+
+# Ahora vamos a ver si el término buscado se encuentra en nuestro polinomio
+def buscar(polinomio, termino):
+    if obtener_valor(polinomio, termino) == 0:
+        print('El término {} no se encuentra en nuestro polinomio'.format(termino))
+    else:
+        print('El término {} sí se encuentra en nuestro polinomio'.format(termino))
