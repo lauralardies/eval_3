@@ -1,5 +1,6 @@
-from torres_hanoi import TorreHanoi
-from sarrus_iterativo import determinante_iter
+from codigo_ejs.torres_hanoi import TorreHanoi
+from codigo_ejs.sarrus_iterativo import determinante_iter
+from codigo_ejs.sarrus_recursivo import determinante_recur
 
 print('¿Qué ejercicio quiere resolver?')
 print('-------------------------------')
@@ -20,3 +21,5 @@ if seleccion == 2:
     opcion = int(input('>> '))   
     if opcion == 1:
         print('El determinante de la matriz es :', determinante_iter(matriz))
+    if opcion == 2:
+        print('El determinante de la matriz es :', determinante_recur(matriz))
