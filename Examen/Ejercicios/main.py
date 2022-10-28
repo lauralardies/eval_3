@@ -26,6 +26,9 @@ elif seleccion == 2:
     if opcion == 2:
         print('El determinante de la matriz es :', determinante_recur(matriz))
 
+elif seleccion == 3:
+    print('Este ejercicio no está hecho')
+
 elif seleccion == 4:
     polinomio1 = Polinomio()
     agregar_termino(polinomio1, 1, 2)
