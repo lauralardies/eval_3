@@ -102,4 +102,5 @@ def eliminar(polinomio, termino):
         actual = polinomio.termino_mayor
         while actual.sig is not None and termino < actual.sig.info.termino:
             actual = actual.sig
-        actual.sig = aux.sig
+        actual = aux.sig
+        return polinomio
