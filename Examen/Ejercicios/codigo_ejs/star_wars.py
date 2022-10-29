@@ -76,11 +76,13 @@ def mostrar_naves(coleccion):
         aux = aux.sig
 
 coleccion = Naves()
-agregar_nave(coleccion, Nave('H',1,2,3))
-agregar_nave(coleccion, Nave('J',2,4,5))
-agregar_nave(coleccion, Nave('A',7,4,5))
-agregar_nave(coleccion, Nave('M',3,4,5))
-agregar_nave(coleccion, Nave('B',5,7,0))
+agregar_nave(coleccion, Nave('Halcón Milenario', 34.37, 4, 3))
+agregar_nave(coleccion, Nave('Estrella de la Muerte', 120000, 75, 226))
+agregar_nave(coleccion, Nave('Ala-X', 12.5, 1, 0))
+agregar_nave(coleccion, Nave('Destructor Estelar', 1600, 46700, 0))
+agregar_nave(coleccion, Nave('AT-ST', 8.6, 2, 0))
+agregar_nave(coleccion, Nave('AT-AT', 44, 3, 40))
+agregar_nave(coleccion, Nave('AT-ET', 13.2, 7, 38))
 
 mostrar_naves(coleccion.nombre)
 print('')
