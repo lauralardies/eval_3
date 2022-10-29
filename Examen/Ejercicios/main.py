@@ -18,7 +18,6 @@ if seleccion == 1:
     # El problema se acaba resolviendo pero debido al alto tiempo de ejecución, no se puede comprobar.
     # Si la Torre de Hanoi tiene n-discos sería necesario realizar (2^n)-1 movimientos.
     TorreHanoi(64, 'A', 'C', 'B')
-
 elif seleccion == 2:
     matriz = [[1, 0, 2],
            [3, 0, 0],
@@ -37,9 +36,13 @@ elif seleccion == 3:
 elif seleccion == 4:
     polinomio1 = Polinomio()
     agregar_termino(polinomio1, 1, 2)
+    agregar_termino(polinomio1, 2, 3)
+    agregar_termino(polinomio1, 0, 5)
 
     polinomio2 = Polinomio()
     agregar_termino(polinomio2, 1, 3)
+
+    print(mostrar(polinomio1))
 
     print('¿Quiere restar el polinomio (1), dividirlo (2), eliminar un término (3) o determinar si existe un término en el polinomio(4)?')
     opcion = int(input('>> ')) 
@@ -48,7 +51,7 @@ elif seleccion == 4:
     if opcion == 2:
         print('La división de polinomios es ', mostrar(dividir(polinomio1, polinomio2)))
     if opcion == 3:
-        print('Se ha eliminado el término, el polinomio resultante es ', mostrar(eliminar(polinomio1, 2)))
+        print('Se ha eliminado el término, el polinomio resultante es ', mostrar(eliminar(polinomio1, 1)))
     if opcion == 4:
         buscar(polinomio1, 3)
 
