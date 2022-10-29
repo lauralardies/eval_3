@@ -21,7 +21,11 @@ def crear_tablas():
 def encriptar(mensaje, encriptacion):
     d = []
     for i in range(len(mensaje)):
-        d.append(encriptacion[hash_encriptar(mensaje[i])])
+        m = hash_encriptar(mensaje[i])
+        if m == -1:
+            print('Ignorando el carácter ', mensaje[i])
+        else:
+            d.append(encriptacion[hash_encriptar(mensaje[i])])
     return ''.join(d)
 
 def desencriptar(mensaje, desencriptacion):
