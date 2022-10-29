@@ -98,13 +98,20 @@ while True:
             print('Las naves que pueden llevar 6 pasajeros o más son:')
             lista = coleccion.pasajeros
             while lista != None:
-                n_pasajeros = lista.parent
+                nave = lista.parent
                 if lista.info >= 6:
-                    mostrar_nave(n_pasajeros)
+                    mostrar_nave(nave)
                 lista = lista.sig
         
         if opcion == '7':
-            pass
+            print('La información de la nave más grande y más pequeña es:')
+            lista = coleccion.largo
+            nave = lista.parent
+            mostrar_nave(nave)
+            while lista.sig != None:
+                lista = lista.sig
+                nave = lista.parent
+            mostrar_nave(nave)
 
     elif seleccion == '4':
         polinomio1 = Polinomio()
