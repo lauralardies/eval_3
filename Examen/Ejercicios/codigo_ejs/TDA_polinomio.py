@@ -111,7 +111,7 @@ def eliminar(polinomio, termino):
 
 # Ahora vamos a ver si el término buscado se encuentra en nuestro polinomio
 def buscar(polinomio, termino):
-    if obtener_valor(polinomio, termino) == 0:
+    if obtener_valor(polinomio, termino) == 0: # Si no se puede obtener el valor del término buscado , significa que el término no se encuentra en el polinomio
         print('El término {} no se encuentra en nuestro polinomio'.format(termino))
     else:
         print('El término {} sí se encuentra en nuestro polinomio'.format(termino))
