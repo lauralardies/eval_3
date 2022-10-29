@@ -17,6 +17,7 @@ class Naves(object):
 def agregar_nave(coleccion, nave):
     agregar_nave_nombre(coleccion, nave)
     agregar_nave_largo(coleccion, nave)
+    agregar_nave_pasajeros(coleccion, nave)
 
 def agregar_nave_nombre(coleccion, nave):
     if coleccion.nombre == None:
@@ -58,6 +59,26 @@ def agregar_nave_largo(coleccion, nave):
                 nave.largo.sig = ant.sig
                 ant.sig = nave.largo
 
+def agregar_nave_pasajeros(coleccion, nave):
+    if coleccion.pasajeros == None:
+        coleccion.pasajeros = nave.pasajeros
+    else:
+        act = coleccion.pasajeros
+        ant = act
+        while act.pasajeros != None and act.info > nave.pasajeros.info:
+            ant = act
+            act = act.pasajeros
+        if coleccion.pasajeros == act and act.info < nave.pasajeros.info:
+            nave.pasajeros.sig = act
+            coleccion.pasajeros = nave.pasajeros
+        else:
+            if act.info > nave.pasajeros.info:
+                nave.pasajeros.sig = act.sig
+                act.sig = nave.pasajeros
+            else:
+                nave.pasajeros.sig = ant.sig
+                ant.sig = nave.pasajeros
+
 def mostrar_naves_nombre(coleccion):
     aux = coleccion.nombre
     while aux != None:
@@ -71,8 +92,7 @@ def mostrar_naves_largo(coleccion):
         nave = aux.parent
         print('La nave', nave.nombre.info, 'con', nave.largo.info, 'metros de largo. La tripulación es de', nave.tripulacion.info, 'personas y caben', nave.pasajeros.info, 'pasajeros')
         aux = aux.sig
-    
-    
+
 coleccion = Naves()
 agregar_nave(coleccion, Nave('H',1,2,3))
 agregar_nave(coleccion, Nave('J',2,4,5))
@@ -83,3 +103,5 @@ agregar_nave(coleccion, Nave('B',5,7,0))
 mostrar_naves_nombre(coleccion)
 print('')
 mostrar_naves_largo(coleccion)
+print('')
+mos
