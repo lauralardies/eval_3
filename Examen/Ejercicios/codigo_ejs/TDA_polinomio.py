@@ -65,8 +65,9 @@ def mostrar(polinomio):
 # Ahora comenzamos con el ejercicio, primero realizamos la función de RESTAR 
 def restar(polinomio1, polinomio2):
     paux = Polinomio()
-    mayor = polinomio1 if polinomio1.grado > polinomio2.grado else polinomio2
+    mayor = polinomio1 if polinomio1.grado >= polinomio2.grado else polinomio2
     menor = polinomio2 if polinomio1 == mayor else polinomio1
+    print('Estamos haciendo la resta ', mostrar(mayor), '-', mostrar(menor))
     for i in range(0, mayor.grado + 1):
         total = obtener_valor(mayor, i) - obtener_valor(menor, i)
         if total != 0:

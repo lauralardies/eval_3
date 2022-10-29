@@ -41,9 +41,11 @@ elif seleccion == 4:
 
     polinomio2 = Polinomio()
     agregar_termino(polinomio2, 1, 3)
+    agregar_termino(polinomio2, 2, -1)
 
-    print(mostrar(polinomio1))
-
+    print('Mi primer polinomio es ', mostrar(polinomio1))
+    print('Mi segundo polinomio es ', mostrar(polinomio2))
+    
     print('¿Quiere restar el polinomio (1), dividirlo (2), eliminar un término (3) o determinar si existe un término en el polinomio(4)?')
     opcion = int(input('>> ')) 
     if opcion == 1:
