@@ -3,6 +3,7 @@ from codigo_ejs.torres_hanoi import TorreHanoi
 from codigo_ejs.sarrus_iterativo import determinante_iter
 from codigo_ejs.sarrus_recursivo import determinante_recur
 from codigo_ejs.TDA_polinomio import Polinomio, agregar_termino, mostrar, restar, dividir, eliminar, buscar
+from codigo_ejs.encriptacion import crear_tablas, encriptar, desencriptar
 
 print('¿Qué ejercicio quiere resolver?')
 print('-------------------------------')
@@ -18,6 +19,7 @@ if seleccion == 1:
     # El problema se acaba resolviendo pero debido al alto tiempo de ejecución, no se puede comprobar.
     # Si la Torre de Hanoi tiene n-discos sería necesario realizar (2^n)-1 movimientos.
     TorreHanoi(64, 'A', 'C', 'B')
+
 elif seleccion == 2:
     matriz = [[1, 0, 2],
            [3, 0, 0],
@@ -58,7 +60,15 @@ elif seleccion == 4:
         buscar(polinomio1, 3)
 
 elif seleccion == 5:
-    print('Este ejercicio no está hecho')
+    encriptacion, desencriptacion = crear_tablas()
+    print('¿Qué mensaje deseas encriptar?')
+    mensaje = input('>> ')
+
+    print('Mensaje encriptado: ', encriptar(mensaje, encriptacion))
+    print('¿Quieres desencriptar el mensaje? Si(1); No(2)')
+    seleccion = int(input('>> '))
+    if seleccion == 1:
+        print('Mensaje desencriptado: ', desencriptar(encriptar(mensaje, encriptacion), desencriptacion))
 
 else:
     print('No has seleccionado un número de ejercicio válido')
