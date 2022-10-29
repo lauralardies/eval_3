@@ -32,8 +32,11 @@ def agregar_termino(polinomio, termino, valor):
         actual = polinomio.termino_mayor
         while actual.sig is not None and termino < actual.sig.info.termino:
             actual = actual.sig
-        aux.sig = actual.sig
-        actual.sig = aux
+        if aux.info.termino == actual.info.termino: # Si el término ya existe en nuestro polinomio, en vez de crear otro término nuevo, sumo sus valores.
+            actual.info.valor = actual.info.valor + aux.info.valor
+        else:
+            aux.sig = actual.sig
+            actual.sig = aux
 
 def modificar_termino(polinomio, termino, valor):
     aux = polinomio.termino_mayor

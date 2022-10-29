@@ -45,7 +45,7 @@ elif seleccion == 4:
 
     print('Mi primer polinomio es ', mostrar(polinomio1))
     print('Mi segundo polinomio es ', mostrar(polinomio2))
-    
+
     print('¿Quiere restar el polinomio (1), dividirlo (2), eliminar un término (3) o determinar si existe un término en el polinomio(4)?')
     opcion = int(input('>> ')) 
     if opcion == 1:
