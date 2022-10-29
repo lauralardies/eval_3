@@ -61,6 +61,7 @@ while True:
             mostrar_naves(coleccion.largo)
         
         if opcion == '2':
+            print('La información del “Halcón Milenario” y la “Estrella de la Muerte” es la siguiente:')
             lista = coleccion.nombre
             while lista != None:
                 nave = lista.parent
@@ -69,6 +70,7 @@ while True:
                 lista = lista.sig
 
         if opcion == '3':
+            print('Las cinco naves con mayor cantidad de pasajeros son:')
             lista = coleccion.pasajeros
             for i in range(0, 5):
                 nave = lista.parent
@@ -78,7 +80,10 @@ while True:
                     break
 
         if opcion == '4':
-            pass
+            lista = coleccion.tripulacion
+            nave = lista.parent
+            print('La nave que requiere más cantidad de tripulación es:')
+            mostrar_nave(nave)
         
         if opcion == '5':
             pass
