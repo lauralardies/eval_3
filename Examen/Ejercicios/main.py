@@ -2,6 +2,7 @@ import unittest
 from codigo_ejs.torres_hanoi import TorreHanoi
 from codigo_ejs.sarrus_iterativo import determinante_iter
 from codigo_ejs.sarrus_recursivo import determinante_recur
+from codigo_ejs.star_wars import Naves, Nave, agregar_nave, mostrar_naves
 from codigo_ejs.TDA_polinomio import Polinomio, agregar_termino, mostrar, restar, dividir, eliminar, buscar
 from codigo_ejs.encriptacion import crear_tablas, encriptar, desencriptar
 
@@ -36,7 +37,48 @@ while True:
         unittest.main()
 
     elif seleccion == 3:
-        print('Este ejercicio no está hecho')
+        coleccion = Naves()
+        agregar_nave(coleccion, Nave('Halcón Milenario', 34.37, 4, 3))
+        agregar_nave(coleccion, Nave('Estrella de la Muerte', 120000, 75, 226))
+        agregar_nave(coleccion, Nave('Ala-X', 12.5, 1, 0))
+        agregar_nave(coleccion, Nave('Destructor Estelar', 1600, 46700, 0))
+        agregar_nave(coleccion, Nave('AT-ST', 8.6, 2, 0))
+        agregar_nave(coleccion, Nave('AT-AT', 44, 3, 40))
+        agregar_nave(coleccion, Nave('AT-ET', 13.2, 7, 38))
+
+        print('¿Qué quieres hacer?')
+        print('1 - Realizar un listado ordenado por nombre de las naves de manera ascendente y por largo de las mismas de manera descendente')
+        print('2 - Mostrar toda la información del “Halcón Milenario” y la “Estrella de la Muerte”')
+        print('3 - Determinar cuáles son las cinco naves con mayor cantidad de pasajeros')
+        print('4 - Indicar cuál es la nave que requiere mayor cantidad de tripulación')
+        print('5 - Mostrar todas las naves que comienzan con AT')
+        print('6 - Listar todas las naves que pueden llevar seis o más pasajeros')
+        print('7 - Mostrar toda la información de la nave más pequeña y la más grande')
+        opcion = int(input('>> '))
+
+        if opcion == 1:
+            print('Las naves ordenadas por nombre de manera ascendente')
+            mostrar_naves(coleccion.nombre) 
+            print('\nLas naves ordenadas por largo de manera descendente')
+            mostrar_naves(coleccion.largo)
+        
+        if opcion == 2:
+            pass
+        
+        if opcion == 3:
+            pass
+        
+        if opcion == 4:
+            pass
+        
+        if opcion == 5:
+            pass
+        
+        if opcion == 6:
+            pass
+        
+        if opcion == 7:
+            pass
 
     elif seleccion == 4:
         polinomio1 = Polinomio()

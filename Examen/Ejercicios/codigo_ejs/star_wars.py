@@ -74,21 +74,3 @@ def mostrar_naves(coleccion):
         nave = aux.parent
         print('La nave', nave.nombre.info, 'con', nave.largo.info, 'metros de largo. La tripulación es de', nave.tripulacion.info, 'personas y caben', nave.pasajeros.info, 'pasajeros')
         aux = aux.sig
-
-coleccion = Naves()
-agregar_nave(coleccion, Nave('Halcón Milenario', 34.37, 4, 3))
-agregar_nave(coleccion, Nave('Estrella de la Muerte', 120000, 75, 226))
-agregar_nave(coleccion, Nave('Ala-X', 12.5, 1, 0))
-agregar_nave(coleccion, Nave('Destructor Estelar', 1600, 46700, 0))
-agregar_nave(coleccion, Nave('AT-ST', 8.6, 2, 0))
-agregar_nave(coleccion, Nave('AT-AT', 44, 3, 40))
-agregar_nave(coleccion, Nave('AT-ET', 13.2, 7, 38))
-
-mostrar_naves(coleccion.nombre)
-print('')
-mostrar_naves(coleccion.largo)
-print('')
-mostrar_naves(coleccion.tripulacion)
-print('')
-mostrar_naves(coleccion.pasajeros)
-print('')
