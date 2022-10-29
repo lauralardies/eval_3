@@ -93,9 +93,6 @@ def dividir(polinomio1, polinomio2):
 
 # La siguiente función a realizar es eliminar un polinomio
 def eliminar(polinomio, termino):
-    #aux = Nodo()
-    #borrar = datoPolinomio(obtener_valor(polinomio, termino), termino)
-    #aux.info = borrar
     if termino > polinomio.grado: # El término a buscar no está en el polinomio al ser más grande
         return polinomio
     else:
@@ -104,9 +101,11 @@ def eliminar(polinomio, termino):
         while actual.sig is not None and termino < actual.info.termino:
             anterior = actual
             actual = actual.sig
-        if actual == anterior:
+        if actual == anterior: # Actualizamos el término mayor y el grado del polinomio si el término que queremos quitar es el primero
             polinomio.termino_mayor = actual.sig
-        anterior.sig = actual.sig
+            polinomio.grado = actual.info.termino
+        else:
+            anterior.sig = actual.sig
         return polinomio
 
 # Ahora vamos a ver si el término buscado se encuentra en nuestro polinomio
