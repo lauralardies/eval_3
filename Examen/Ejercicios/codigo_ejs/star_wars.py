@@ -15,79 +15,61 @@ class Naves(object):
     nombre, largo, tripulacion, pasajeros = None, None, None, None
 
 def agregar_nave(coleccion, nave):
-    agregar_nave_nombre(coleccion, nave)
-    agregar_nave_largo(coleccion, nave)
-    agregar_nave_pasajeros(coleccion, nave)
+    coleccion.nombre = agregar_nave_asc(coleccion.nombre, nave.nombre)
+    coleccion.largo = agregar_nave_desc(coleccion.largo, nave.largo)
+    coleccion.tripulacion = agregar_nave_desc(coleccion.tripulacion, nave.tripulacion)
+    coleccion.pasajeros = agregar_nave_desc(coleccion.pasajeros, nave.pasajeros)
 
-def agregar_nave_nombre(coleccion, nave):
-    if coleccion.nombre == None:
-        coleccion.nombre = nave.nombre
+def agregar_nave_asc(item, elemento):
+    if item == None:
+        item = elemento
+        primero = item
     else:
-        act = coleccion.nombre
+        primero = item
+        act = item
         ant = act
-        while act.sig != None and act.info < nave.nombre.info:
+        while act.sig != None and act.info < elemento.info:
             ant = act
             act = act.sig
-        if coleccion.nombre == act and act.info > nave.nombre.info:
-            nave.nombre.sig = act
-            coleccion.nombre = nave.nombre
+        if item == act and act.info > elemento.info:
+            elemento.sig = act
+            item = elemento
+            primero = item
         else:
-            if act.info < nave.nombre.info:
-                nave.nombre.sig = act.sig
-                act.sig = nave.nombre
+            if act.info < elemento.info:
+                elemento.sig = act.sig
+                act.sig = elemento
             else:
-                nave.nombre.sig = ant.sig
-                ant.sig = nave.nombre
+                elemento.sig = ant.sig
+                ant.sig = elemento
+    return primero
 
-def agregar_nave_largo(coleccion, nave):
-    if coleccion.largo == None:
-        coleccion.largo = nave.largo
+def agregar_nave_desc(item, elemento):
+    if item == None:
+        item = elemento
+        primero = item
     else:
-        act = coleccion.largo
+        primero = item
+        act = item
         ant = act
-        while act.sig != None and act.info > nave.largo.info:
+        while act.sig != None and act.info > elemento.info:
             ant = act
             act = act.sig
-        if coleccion.largo == act and act.info < nave.largo.info:
-            nave.largo.sig = act
-            coleccion.largo = nave.largo
+        if item == act and act.info < elemento.info:
+            elemento.sig = act
+            item = elemento
+            primero = item
         else:
-            if act.info > nave.largo.info:
-                nave.largo.sig = act.sig
-                act.sig = nave.largo
+            if act.info > elemento.info:
+                elemento.sig = act.sig
+                act.sig = elemento
             else:
-                nave.largo.sig = ant.sig
-                ant.sig = nave.largo
+                elemento.sig = ant.sig
+                ant.sig = elemento
+    return primero
 
-def agregar_nave_pasajeros(coleccion, nave):
-    if coleccion.pasajeros == None:
-        coleccion.pasajeros = nave.pasajeros
-    else:
-        act = coleccion.pasajeros
-        ant = act
-        while act.pasajeros != None and act.info > nave.pasajeros.info:
-            ant = act
-            act = act.pasajeros
-        if coleccion.pasajeros == act and act.info < nave.pasajeros.info:
-            nave.pasajeros.sig = act
-            coleccion.pasajeros = nave.pasajeros
-        else:
-            if act.info > nave.pasajeros.info:
-                nave.pasajeros.sig = act.sig
-                act.sig = nave.pasajeros
-            else:
-                nave.pasajeros.sig = ant.sig
-                ant.sig = nave.pasajeros
-
-def mostrar_naves_nombre(coleccion):
-    aux = coleccion.nombre
-    while aux != None:
-        nave = aux.parent
-        print('La nave', nave.nombre.info, 'con', nave.largo.info, 'metros de largo. La tripulación es de', nave.tripulacion.info, 'personas y caben', nave.pasajeros.info, 'pasajeros')
-        aux = aux.sig
-
-def mostrar_naves_largo(coleccion):
-    aux = coleccion.largo
+def mostrar_naves(coleccion):
+    aux = coleccion
     while aux != None:
         nave = aux.parent
         print('La nave', nave.nombre.info, 'con', nave.largo.info, 'metros de largo. La tripulación es de', nave.tripulacion.info, 'personas y caben', nave.pasajeros.info, 'pasajeros')
@@ -100,8 +82,11 @@ agregar_nave(coleccion, Nave('A',7,4,5))
 agregar_nave(coleccion, Nave('M',3,4,5))
 agregar_nave(coleccion, Nave('B',5,7,0))
 
-mostrar_naves_nombre(coleccion)
+mostrar_naves(coleccion.nombre)
 print('')
-mostrar_naves_largo(coleccion)
+mostrar_naves(coleccion.largo)
 print('')
-mos
+mostrar_naves(coleccion.tripulacion)
+print('')
+mostrar_naves(coleccion.pasajeros)
+print('')
