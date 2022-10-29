@@ -95,7 +95,13 @@ while True:
                 lista = lista.sig
 
         if opcion == '6':
-            pass
+            print('Las naves que pueden llevar 6 pasajeros o más son:')
+            lista = coleccion.pasajeros
+            while lista != None:
+                n_pasajeros = lista.parent
+                if lista.info >= 6:
+                    mostrar_nave(n_pasajeros)
+                lista = lista.sig
         
         if opcion == '7':
             pass
