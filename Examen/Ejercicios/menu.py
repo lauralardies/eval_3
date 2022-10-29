@@ -1,8 +1,7 @@
-import unittest
 from codigo_ejs.torres_hanoi import TorreHanoi
 from codigo_ejs.sarrus_iterativo import determinante_iter
 from codigo_ejs.sarrus_recursivo import determinante_recur
-from codigo_ejs.star_wars import Naves, Nave, agregar_nave, mostrar_naves
+from codigo_ejs.star_wars import Naves, Nave, agregar_nave, mostrar_naves, mostrar_nave
 from codigo_ejs.TDA_polinomio import Polinomio, agregar_termino, mostrar, restar, dividir, eliminar, buscar
 from codigo_ejs.encriptacion import crear_tablas, encriptar, desencriptar
 
@@ -34,7 +33,6 @@ while True:
             print('El determinante de la matriz es :', determinante_iter(matriz))
         if opcion == '2':
             print('El determinante de la matriz es :', determinante_recur(matriz))
-        unittest.main()
 
     elif seleccion == '3':
         coleccion = Naves()
@@ -63,11 +61,22 @@ while True:
             mostrar_naves(coleccion.largo)
         
         if opcion == '2':
-            pass
-        
+            lista = coleccion.nombre
+            while lista != None:
+                nave = lista.parent
+                if lista.info == 'Halcón Milenario' or lista.info == 'Estrella de la Muerte':
+                    mostrar_nave(nave)
+                lista = lista.sig
+
         if opcion == '3':
-            pass
-        
+            lista = coleccion.pasajeros
+            for i in range(0, 5):
+                nave = lista.parent
+                mostrar_nave(nave)
+                lista = lista.sig
+                if lista == None:
+                    break
+
         if opcion == '4':
             pass
         
