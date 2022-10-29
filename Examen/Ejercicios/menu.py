@@ -86,8 +86,14 @@ while True:
             mostrar_nave(nave)
         
         if opcion == '5':
-            pass
-        
+            print('Las naves que empiezan con “AT” son las siguientes:')
+            lista = coleccion.nombre
+            while lista != None:
+                nave = lista.parent
+                if lista.info.startswith('AT'):
+                    mostrar_nave(nave)
+                lista = lista.sig
+
         if opcion == '6':
             pass
         
