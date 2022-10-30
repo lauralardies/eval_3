@@ -1,5 +1,5 @@
 import unittest
-from Examen.Ejercicios.codigo_ejs.sarrus import submatriz, determinante
+from sarrus import submatriz, determinante
 
 class TestDeterminante(unittest.TestCase):
 
