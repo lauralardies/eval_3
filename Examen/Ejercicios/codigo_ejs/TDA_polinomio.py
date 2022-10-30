@@ -70,7 +70,7 @@ def restar(polinomio1, polinomio2):
     paux = Polinomio()
     mayor = polinomio1 if polinomio1.grado >= polinomio2.grado else polinomio2
     menor = polinomio2 if polinomio1 == mayor else polinomio1
-    print('Estamos haciendo la resta ', mostrar(mayor), '-', mostrar(menor))
+    print('\nEstamos haciendo la resta ', mostrar(mayor), '-', mostrar(menor))
     for i in range(0, mayor.grado + 1):
         total = obtener_valor(mayor, i) - obtener_valor(menor, i)
         if total != 0:
@@ -115,6 +115,6 @@ def eliminar(polinomio, termino):
 # Ahora vamos a ver si el término buscado se encuentra en nuestro polinomio
 def buscar(polinomio, termino):
     if obtener_valor(polinomio, termino) == 0: # Si no se puede obtener el valor del término buscado , significa que el término no se encuentra en el polinomio
-        print('El término {} no se encuentra en nuestro polinomio'.format(termino))
+        return('El término {} no se encuentra en nuestro polinomio'.format(termino))
     else:
-        print('El término {} sí se encuentra en nuestro polinomio'.format(termino))
+        return('El término {} sí se encuentra en nuestro polinomio'.format(termino))

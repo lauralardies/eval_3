@@ -1,6 +1,5 @@
 from codigo_ejs.torres_hanoi import TorreHanoi
-from codigo_ejs.sarrus_iterativo import determinante_iter
-from codigo_ejs.sarrus_recursivo import determinante_recur
+from codigo_ejs.sarrus import determinante
 from codigo_ejs.star_wars import Naves, Nave, agregar_nave, mostrar_naves, mostrar_nave
 from codigo_ejs.TDA_polinomio import Polinomio, agregar_termino, mostrar, restar, dividir, eliminar, buscar
 from codigo_ejs.encriptacion import crear_tablas, encriptar, desencriptar
@@ -27,13 +26,11 @@ while True:
         matriz = [[1, 0, 2],
             [3, 0, 0],
             [2, 1, 4]]
-        print('¿Quieres resolver el ejercicio de manera iterativa (1) o recursiva(2)?')
-        opcion = input('>> ')  
-        if opcion == '1':
-            print('El determinante de la matriz es :', determinante_iter(matriz))
-        if opcion == '2':
-            print('El determinante de la matriz es :', determinante_recur(matriz))
-
+        print('Mi matriz es la siguiente:')
+        for i in range(len(matriz)):
+            print(matriz[0][i], matriz[1][i], matriz[2][i])
+        print('El determinante de la matriz es :', determinante(matriz))
+        
     elif seleccion == '3':
         coleccion = Naves()
         agregar_nave(coleccion, Nave('Halcón Milenario', 34.37, 4, 3))
@@ -55,13 +52,13 @@ while True:
         opcion = input('>> ')
 
         if opcion == '1':
-            print('Las naves ordenadas por nombre de manera ascendente')
+            print('\nLas naves ordenadas por nombre de manera ascendente')
             mostrar_naves(coleccion.nombre) 
             print('\nLas naves ordenadas por largo de manera descendente')
             mostrar_naves(coleccion.largo)
-        
-        if opcion == '2':
-            print('La información del “Halcón Milenario” y la “Estrella de la Muerte” es la siguiente:')
+
+        elif opcion == '2':
+            print('\nLa información del “Halcón Milenario” y la “Estrella de la Muerte” es la siguiente:')
             lista = coleccion.nombre
             while lista != None:
                 nave = lista.parent
@@ -69,8 +66,8 @@ while True:
                     mostrar_nave(nave)
                 lista = lista.sig
 
-        if opcion == '3':
-            print('Las cinco naves con mayor cantidad de pasajeros son:')
+        elif opcion == '3':
+            print('\nLas cinco naves con mayor cantidad de pasajeros son:')
             lista = coleccion.pasajeros
             for i in range(0, 5):
                 nave = lista.parent
@@ -79,14 +76,14 @@ while True:
                 if lista == None:
                     break
 
-        if opcion == '4':
+        elif opcion == '4':
             lista = coleccion.tripulacion
             nave = lista.parent
-            print('La nave que requiere más cantidad de tripulación es:')
+            print('\nLa nave que requiere más cantidad de tripulación es:')
             mostrar_nave(nave)
         
-        if opcion == '5':
-            print('Las naves que empiezan con “AT” son las siguientes:')
+        elif opcion == '5':
+            print('\nLas naves que empiezan con “AT” son las siguientes:')
             lista = coleccion.nombre
             while lista != None:
                 nave = lista.parent
@@ -94,8 +91,8 @@ while True:
                     mostrar_nave(nave)
                 lista = lista.sig
 
-        if opcion == '6':
-            print('Las naves que pueden llevar 6 pasajeros o más son:')
+        elif opcion == '6':
+            print('\nLas naves que pueden llevar 6 pasajeros o más son:')
             lista = coleccion.pasajeros
             while lista != None:
                 nave = lista.parent
@@ -103,8 +100,8 @@ while True:
                     mostrar_nave(nave)
                 lista = lista.sig
         
-        if opcion == '7':
-            print('La información de la nave más grande y más pequeña es:')
+        elif opcion == '7':
+            print('\nLa información de la nave más grande y más pequeña es:')
             lista = coleccion.largo
             nave = lista.parent
             mostrar_nave(nave)
@@ -113,6 +110,9 @@ while True:
                 nave = lista.parent
             mostrar_nave(nave)
 
+        else:
+            print('\nNo has seleccionado un número de ejercicio válido')
+    
     elif seleccion == '4':
         polinomio1 = Polinomio()
         agregar_termino(polinomio1, 1, 2)
@@ -128,23 +128,31 @@ while True:
 
         print('¿Quiere restar el polinomio (1), dividirlo (2), eliminar un término (3) o determinar si existe un término en el polinomio(4)?')
         opcion = input('>> ')
+
         if opcion == '1':
             print('La resta de los polinomios es ', mostrar(restar(polinomio1, polinomio2)))
-        if opcion == '2':
-            print('La división de polinomios es ', mostrar(dividir(polinomio1, polinomio2)))
-        if opcion == '3':
-            print('Se ha eliminado el término, el polinomio resultante es ', mostrar(eliminar(polinomio1, 1)))
-        if opcion == '4':
-            buscar(polinomio1, 3)
+
+        elif opcion == '2':
+            print('\nLa división de polinomios es ', mostrar(dividir(polinomio1, polinomio2)))
+
+        elif opcion == '3':
+            print('\nSe ha eliminado el término 1, el polinomio resultante es ', mostrar(eliminar(polinomio1, 1)))
+        
+        elif opcion == '4':
+            print('\n', buscar(polinomio1, 3))
+
+        else:
+            print('\nNo has seleccionado un número de ejercicio válido')
 
     elif seleccion == '5':
         encriptacion, desencriptacion = crear_tablas()
-        print('¿Qué mensaje deseas encriptar?')
+        print('\n¿Qué mensaje deseas encriptar?')
         mensaje = input('>> ')
 
         print('Mensaje encriptado: ', encriptar(mensaje, encriptacion))
-        print('¿Quieres desencriptar el mensaje? Si(1); No(2)')
+        print('\n¿Quieres desencriptar el mensaje? Si(1); No(2)')
         opcion = input('>> ')
+
         if opcion == '1':
             print('Mensaje desencriptado: ', desencriptar(encriptar(mensaje, encriptacion), desencriptacion))
 
@@ -152,9 +160,10 @@ while True:
         break
 
     else:
-        print('No has seleccionado un número de ejercicio válido')
+        print('\nNo has seleccionado un número de ejercicio válido')
     
-    print('¿Quieres resolver algún ejercicio más? Sí(1); No(2)')
+    print('\n¿Quieres resolver algún ejercicio más? Sí(1); No(2)')
     opcion = input('>> ')
+
     if opcion == '2':
         break
