@@ -64,12 +64,29 @@ def mostrar(polinomio):
             aux = aux.sig
     return pol
 
+def multiplicar(polinomio1, polinomio2):
+    paux = Polinomio()
+    pol1 = polinomio1.termino_mayor
+    while pol1 is not None:
+        pol2 = polinomio2.termino_mayor
+        while pol2 is not None:
+            termino = pol1.info.termino + pol2.info.termino
+            valor = pol1.info.valor * pol2.info.valor
+            if obtener_valor(paux, termino) != 0:
+                valor += obtener_valor(paux, termino)
+                modificar_termino(paux, termino, valor)
+            else:
+                agregar_termino(paux, termino, valor)
+            pol2 = pol2.sig
+        pol1 = pol1.sig
+    return paux
+
 # Ahora comenzamos con el ejercicio, primero realizamos la función de RESTAR 
 def restar(polinomio1, polinomio2):
     paux = Polinomio()
     mayor = polinomio1 if polinomio1.grado >= polinomio2.grado else polinomio2
     menor = polinomio2 if polinomio1 == mayor else polinomio1
-    print('\nEstamos haciendo la resta ', mostrar(mayor), '-', mostrar(menor))
+    print('\nEstamos haciendo la resta', mostrar(mayor), '-', mostrar(menor))
     for i in range(0, mayor.grado + 1):
         total = obtener_valor(mayor, i) - obtener_valor(menor, i)
         if total != 0:
@@ -79,19 +96,15 @@ def restar(polinomio1, polinomio2):
 # Seguimos con la función de DIVIDIR
 def dividir(polinomio1, polinomio2):
     paux = Polinomio()
-    pol1 = polinomio1.termino_mayor
-    while pol1 is not None:
-        pol2 = polinomio2.termino_mayor
-        while pol2 is not None:
-            termino = pol1.info.termino - pol2.info.termino
-            valor = pol1.info.valor / pol2.info.valor
-            if obtener_valor(paux, termino) != 0:
-                valor += obtener_valor(paux, termino)
-                modificar_termino(paux, termino, valor)
-            else:
-                agregar_termino(paux, termino, valor)
-            pol2 = pol1.sig
-        pol1 = pol1.sig
+    a = polinomio1.termino_mayor
+    b = polinomio2.termino_mayor
+    termino = a.info.termino - b.info.termino
+    valor = a.info.valor / b.info.valor
+    agregar_termino(paux, termino, valor)
+    m = multiplicar(polinomio2, paux)
+    resto = restar(polinomio1, m)
+    for i in range(resto.grado):
+        dividir(resto, polinomio2)
     return paux
 
 # La siguiente función a realizar es ELIMINAR un polinomio

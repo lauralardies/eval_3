@@ -115,13 +115,13 @@ while True:
     
     elif seleccion == '4':
         polinomio1 = Polinomio()
-        agregar_termino(polinomio1, 1, 2)
-        agregar_termino(polinomio1, 2, 3)
-        agregar_termino(polinomio1, 0, 5)
+        agregar_termino(polinomio1, 3, 1)
+        agregar_termino(polinomio1, 2, -2)
+        agregar_termino(polinomio1, 0, 1)
 
         polinomio2 = Polinomio()
-        agregar_termino(polinomio2, 1, 3)
-        agregar_termino(polinomio2, 2, -1)
+        agregar_termino(polinomio2, 1, 1)
+        agregar_termino(polinomio2, 0, -1)
 
         print('Mi primer polinomio es ', mostrar(polinomio1))
         print('Mi segundo polinomio es ', mostrar(polinomio2))
