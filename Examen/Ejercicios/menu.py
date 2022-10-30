@@ -20,7 +20,7 @@ while True:
     if seleccion == '1':
         # El problema se acaba resolviendo pero debido al alto tiempo de ejecución, no se puede comprobar.
         # Si la Torre de Hanoi tiene n-discos sería necesario realizar (2^n)-1 movimientos.
-        TorreHanoi(64, 'A', 'C', 'B')
+        TorreHanoi(74, 'A', 'C', 'B')
 
     elif seleccion == '2':
         matriz = [[1, 0, 2],
