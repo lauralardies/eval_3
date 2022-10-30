@@ -4,7 +4,6 @@
 # eliminar un término
 # determinar si un término existe en un polinomio
 
-
 # Comenzamos mostrando las funciones que nos definen el polinomio
 
 class Nodo(object):
@@ -95,7 +94,7 @@ def dividir(polinomio1, polinomio2):
         pol1 = pol1.sig
     return paux
 
-# La siguiente función a realizar es eliminar un polinomio
+# La siguiente función a realizar es ELIMINAR un polinomio
 def eliminar(polinomio, termino):
     if termino > polinomio.grado: # El término a buscar no está en el polinomio al ser más grande
         return polinomio
@@ -112,7 +111,7 @@ def eliminar(polinomio, termino):
             anterior.sig = actual.sig
         return polinomio
 
-# Ahora vamos a ver si el término buscado se encuentra en nuestro polinomio
+# Ahora vamos a ver si el término BUSCADO se encuentra en nuestro polinomio
 def buscar(polinomio, termino):
     if obtener_valor(polinomio, termino) == 0: # Si no se puede obtener el valor del término buscado , significa que el término no se encuentra en el polinomio
         return('El término {} no se encuentra en nuestro polinomio'.format(termino))
