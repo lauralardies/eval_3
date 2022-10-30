@@ -29,10 +29,7 @@ while True:
         print('Mi matriz es la siguiente:')
         for i in range(len(matriz)):
             print(matriz[0][i], matriz[1][i], matriz[2][i])
-        if determinante(matriz) == 'Matriz no cuadrada':
-            print(determinante(matriz))
-        else:
-            print('El determinante de la matriz es :', determinante(matriz))
+        print('El determinante de la matriz es :', determinante(matriz))
         
     elif seleccion == '3':
         coleccion = Naves()
