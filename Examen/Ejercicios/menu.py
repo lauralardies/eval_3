@@ -126,7 +126,7 @@ while True:
         print('Mi primer polinomio es ', mostrar(polinomio1))
         print('Mi segundo polinomio es ', mostrar(polinomio2))
 
-        print('¿Quiere restar el polinomio (1), dividirlo (2), eliminar un término (3) o determinar si existe un término en el polinomio(4)?')
+        print('¿Quiere restar el polinomio (1), dividirlo (2), eliminar un término del primer polinomio (3) o determinar si existe un término en el primer polinomio (4)?')
         opcion = input('>> ')
 
         if opcion == '1':
@@ -138,10 +138,44 @@ while True:
             print('\nLa división de polinomios es', mostrar(cociente), 'con resto', mostrar(resto))
 
         elif opcion == '3':
-            print('\nSe ha eliminado el término 1, el polinomio resultante es', mostrar(eliminar(polinomio1, 1)))
-        
+            print('¿Qué polinomio quieres modificar? Polinomio 1 (1); Polinomio 2 (2)')
+            eleccion1 = input('>> ')
+            print('¿Qué termino quieres eliminar?')
+            eleccion2 = input('>> ')
+            try:
+                eleccion1 = int(eleccion1)
+                eleccion2 = int(eleccion2)
+                if eleccion1 == 1:
+                    eleccion1 = polinomio1
+                elif eleccion1 == 2:
+                    eleccion1 = polinomio2
+                else:
+                    print('Tienes que seleccionar un polinomio válido')
+                    exit()
+                print('\nSe ha eliminado el término {}, el polinomio resultante es{}'.format(eleccion2, mostrar(eliminar(eleccion1, eleccion2))))
+            
+            except ValueError:
+                print('Debes introducir un número')
+
         elif opcion == '4':
-            print('\n', buscar(polinomio1, 3))
+            print('¿Qué polinomio quieres analizar? Polinomio 1 (1); Polinomio 2 (2)')
+            eleccion1 = input('>> ')
+            print('¿Qué termino quieres buscar?')
+            eleccion2 = input('>> ')
+            try:
+                eleccion1 = int(eleccion1)
+                eleccion2 = int(eleccion2)
+                if eleccion1 == 1:
+                    eleccion1 = polinomio1
+                elif eleccion1 == 2:
+                    eleccion1 = polinomio2
+                else:
+                    print('Tienes que seleccionar un polinomio válido')
+                    exit()
+                print('\n', buscar(eleccion1, eleccion2))
+
+            except  ValueError:
+                print('Debe introducir un número')
 
         else:
             print('\nNo has seleccionado un número de ejercicio válido')

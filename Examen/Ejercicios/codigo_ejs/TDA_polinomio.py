@@ -125,7 +125,8 @@ def eliminar(polinomio, termino):
             polinomio.termino_mayor = actual.sig
             polinomio.grado = actual.info.termino
         else:
-            anterior.sig = actual.sig
+            if termino == actual.info.termino:
+                anterior.sig = actual.sig
         return polinomio
 
 # Ahora vamos a ver si el término BUSCADO se encuentra en nuestro polinomio
