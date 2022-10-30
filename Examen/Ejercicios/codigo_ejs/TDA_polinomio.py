@@ -105,9 +105,11 @@ def dividir(polinomio1, polinomio2, paux):
     m = multiplicar(polinomio2, c)
     resto = restar(polinomio1, m)
     if resto.grado >= polinomio2.grado:
-        dividir(resto, polinomio2, paux)
+        return dividir(resto, polinomio2, paux)
     else:
-        return paux
+        if resto.grado == -1:
+            agregar_termino(resto, 0, 0)
+        return paux, resto
 
 # La siguiente función a realizar es ELIMINAR un polinomio
 def eliminar(polinomio, termino):

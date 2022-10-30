@@ -134,8 +134,8 @@ while True:
 
         elif opcion == '2':
             paux = Polinomio()
-            cociente = dividir(polinomio1, polinomio2, paux)
-            print('\nLa división de polinomios es', mostrar(cociente))
+            cociente, resto = dividir(polinomio1, polinomio2, paux)
+            print('\nLa división de polinomios es', mostrar(cociente), 'con resto', mostrar(resto))
 
         elif opcion == '3':
             print('\nSe ha eliminado el término 1, el polinomio resultante es', mostrar(eliminar(polinomio1, 1)))
