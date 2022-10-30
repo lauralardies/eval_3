@@ -63,7 +63,7 @@ while True:
             while lista != None:
                 nave = lista.parent
                 if lista.info == 'Halcón Milenario' or lista.info == 'Estrella de la Muerte':
-                    mostrar_nave(nave)
+                    print(mostrar_nave(nave))
                 lista = lista.sig
 
         elif opcion == '3':
@@ -71,7 +71,7 @@ while True:
             lista = coleccion.pasajeros
             for i in range(0, 5):
                 nave = lista.parent
-                mostrar_nave(nave)
+                print(mostrar_nave(nave))
                 lista = lista.sig
                 if lista == None:
                     break
@@ -80,7 +80,7 @@ while True:
             lista = coleccion.tripulacion
             nave = lista.parent
             print('\nLa nave que requiere más cantidad de tripulación es:')
-            mostrar_nave(nave)
+            print(mostrar_nave(nave))
         
         elif opcion == '5':
             print('\nLas naves que empiezan con “AT” son las siguientes:')
@@ -88,7 +88,7 @@ while True:
             while lista != None:
                 nave = lista.parent
                 if lista.info.startswith('AT'):
-                    mostrar_nave(nave)
+                    print(mostrar_nave(nave))
                 lista = lista.sig
 
         elif opcion == '6':
@@ -97,18 +97,18 @@ while True:
             while lista != None:
                 nave = lista.parent
                 if lista.info >= 6:
-                    mostrar_nave(nave)
+                    print(mostrar_nave(nave))
                 lista = lista.sig
         
         elif opcion == '7':
             print('\nLa información de la nave más grande y más pequeña es:')
             lista = coleccion.largo
             nave = lista.parent
-            mostrar_nave(nave)
+            print(mostrar_nave(nave))
             while lista.sig != None:
                 lista = lista.sig
                 nave = lista.parent
-            mostrar_nave(nave)
+            print(mostrar_nave(nave))
 
         else:
             print('\nNo has seleccionado un número de ejercicio válido')

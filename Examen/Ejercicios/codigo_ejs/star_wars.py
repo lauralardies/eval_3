@@ -69,11 +69,12 @@ def agregar_nave_desc(item, elemento):
     return primero
 
 def mostrar_nave(nave):
-    print('La nave', nave.nombre.info, 'con', nave.largo.info, 'metros de largo. La tripulación es de', nave.tripulacion.info, 'personas y caben', nave.pasajeros.info, 'pasajeros')
+    sol = 'La nave {} con {} metro(s) de largo. La tripulación es de {} persona(s) y caben {} pasajero(s)'.format(nave.nombre.info, nave.largo.info, nave.tripulacion.info, nave.pasajeros.info)
+    return sol
 
 def mostrar_naves(coleccion):
     aux = coleccion
     while aux != None:
         nave = aux.parent
-        mostrar_nave(nave)
+        print(mostrar_nave(nave))
         aux = aux.sig
