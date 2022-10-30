@@ -1,6 +1,6 @@
 def hash_encriptar(c): 
     indice = ord(c) - 32
-    if indice > 125 or indice < 0: # Si el caracter no se encuentra entre el 32 y 125 de la tabla ASCII, devolvemos -1
+    if indice > 93 or indice < 0: # Si el caracter no se encuentra entre el 32 y 125 de la tabla ASCII, devolvemos -1
         return -1 
     return indice
 
