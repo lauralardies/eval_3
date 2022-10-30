@@ -130,13 +130,15 @@ while True:
         opcion = input('>> ')
 
         if opcion == '1':
-            print('La resta de los polinomios es ', mostrar(restar(polinomio1, polinomio2)))
+            print('La resta de los polinomios es', mostrar(restar(polinomio1, polinomio2)))
 
         elif opcion == '2':
-            print('\nLa división de polinomios es ', mostrar(dividir(polinomio1, polinomio2)))
+            paux = Polinomio()
+            cociente = dividir(polinomio1, polinomio2, paux)
+            print('\nLa división de polinomios es', mostrar(cociente))
 
         elif opcion == '3':
-            print('\nSe ha eliminado el término 1, el polinomio resultante es ', mostrar(eliminar(polinomio1, 1)))
+            print('\nSe ha eliminado el término 1, el polinomio resultante es', mostrar(eliminar(polinomio1, 1)))
         
         elif opcion == '4':
             print('\n', buscar(polinomio1, 3))

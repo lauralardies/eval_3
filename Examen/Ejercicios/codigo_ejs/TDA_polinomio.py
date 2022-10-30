@@ -94,18 +94,20 @@ def restar(polinomio1, polinomio2):
     return paux
 
 # Seguimos con la función de DIVIDIR
-def dividir(polinomio1, polinomio2):
-    paux = Polinomio()
+def dividir(polinomio1, polinomio2, paux):
     a = polinomio1.termino_mayor
     b = polinomio2.termino_mayor
+    c = Polinomio()
     termino = a.info.termino - b.info.termino
     valor = a.info.valor / b.info.valor
     agregar_termino(paux, termino, valor)
-    m = multiplicar(polinomio2, paux)
+    agregar_termino(c, termino, valor)
+    m = multiplicar(polinomio2, c)
     resto = restar(polinomio1, m)
-    for i in range(resto.grado):
-        dividir(resto, polinomio2)
-    return paux
+    if resto.grado >= polinomio2.grado:
+        dividir(resto, polinomio2, paux)
+    else:
+        return paux
 
 # La siguiente función a realizar es ELIMINAR un polinomio
 def eliminar(polinomio, termino):
